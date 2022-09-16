@@ -1,0 +1,184 @@
+package servletDemo;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
+
+/**
+ * Servlet implementation class dogetDemo
+ */
+public class dogetDemo extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+  
+    public dogetDemo() {
+       System.out.println("constructor");
+ 
+    }
+
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		PrintWriter writer=response.getWriter();
+		writer.println("get method");
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		PrintWriter writer=response.getWriter();
+		writer.println("post method");
+	}
+
+}
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form action = "dogetDemo" method="get">  
+		<input type="submit" value="click" >
+	</form>
+
+</body>
+</html>
+
+
+package servletDemo;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
+
+/**
+ * Servlet implementation class dogetDemo
+ */
+public class dogetDemo extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+  
+    public dogetDemo() {
+       System.out.println("constructor");
+ 
+    }
+
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		PrintWriter writer=response.getWriter();
+		//writer.println("get method");
+		
+		String name=request.getParameter("uname");
+		writer.println("hello"+name);
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//PrintWriter writer=response.getWriter();
+		//writer.println("post method");
+		doGet(request,response);
+	}
+
+}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form action = "dogetDemo" method="post">
+	
+		Enter Name:<input type ="text" name="uname"/><br>
+		<input type="submit" value="click" >
+		
+	</form>
+
+</body>
+</html>
+
+
+
+
+package servletDemo;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
+
+/**
+ * Servlet implementation class dogetDemo
+ */
+public class dogetDemo extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+  
+    public dogetDemo() {
+       System.out.println("constructor");
+ 
+    }
+
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		PrintWriter writer=response.getWriter();
+		//writer.println("get method");
+		
+		String name=request.getParameter("uname");
+		String pword=request.getParameter("upassword");
+		
+		if (name.equals("ppk") && pword.equals("kumar01")) {
+			writer.println("hello "+name+" and password is "+ pword);
+		}else {
+			writer.println("check input");
+		}
+		
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//PrintWriter writer=response.getWriter();
+		//writer.println("post method");
+		doGet(request,response);
+	}
+
+}
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form action = "dogetDemo" method="get">
+	
+		Enter user Name:<input type ="text" name="uname"/><br>
+		
+		Enter password:<input type ="password" name="upassword"/><br>
+		<input type="submit" value="click" >
+	</form>
+
+</body>
+</html>
+
+
+
+
